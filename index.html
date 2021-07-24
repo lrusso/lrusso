@@ -29,6 +29,7 @@
 
 			body{padding-top:56px}
 			p{font-size:15px}
+			img{display:inline-block;min-width:50px;min-height:100px}
 			.col-lg-5{text-align:center}
 			.col-lg-5 p{padding-top:15px;padding-bottom:15px;line-height:3;margin-bottom:6px}
 			.col-lg-5 h1{border-bottom:1px solid rgba(0,0,0,0.1);padding-bottom:20px}
@@ -94,10 +95,13 @@
 
 			var STRING_LATEST1 = "";
 			var STRING_LATEST1_DESC = "";
+			var STRING_LATEST1_IMAGE = "";
 			var STRING_LATEST2 = "";
 			var STRING_LATEST2_DESC = "";
+			var STRING_LATEST2_IMAGE = "";
 			var STRING_LATEST3 = "";
 			var STRING_LATEST3_DESC = "";
+			var STRING_LATEST3_IMAGE = "";
 
 			var STRING_DOWNLOAD_APP = "";
 			var STRING_BROWSE_WEBSITE = "";
@@ -131,10 +135,13 @@
 
 				STRING_LATEST1 = "Blind Web Reader";
 				STRING_LATEST1_DESC = "App gratuita y de c&oacute;digo libre para personas con discapacidad visual.";
+				STRING_LATEST1_IMAGE = "img_Latest1_Spanish.png";
 				STRING_LATEST2 = "3D Object Maker";
 				STRING_LATEST2_DESC = "App gratuita y de c&oacute;digo libre de dise&ntilde;o 3D para escuelas primarias.";
+				STRING_LATEST2_IMAGE = "img_Latest2_Spanish.png";
 				STRING_LATEST3 = "Emulatrix";
 				STRING_LATEST3_DESC = "Web gratuita y de c&oacute;digo libre para jugar juegos retro online.";
+				STRING_LATEST3_IMAGE = "img_Latest3_Spanish.png";
 
 				STRING_DOWNLOAD_APP = "Descargar App";
 				STRING_BROWSE_WEBSITE = "Visitar Web";
@@ -168,10 +175,13 @@
 
 				STRING_LATEST1 = "Blind Web Reader";
 				STRING_LATEST1_DESC = "Free and Open Source App for the visually impaired.";
+				STRING_LATEST1_IMAGE = "img_Latest1_English.png";
 				STRING_LATEST2 = "3D Object Maker";
 				STRING_LATEST2_DESC = "3D Design software for schools and institutions.";
+				STRING_LATEST2_IMAGE = "img_Latest2_English.png";
 				STRING_LATEST3 = "Emulatrix";
 				STRING_LATEST3_DESC = "Free and open source for playing retro games online.";
+				STRING_LATEST3_IMAGE = "img_Latest3_English.png";
 
 				STRING_DOWNLOAD_APP = "Download App";
 				STRING_BROWSE_WEBSITE = "Browse Website";
@@ -226,7 +236,7 @@
 			<div class="row">
 				<div class="col-md-4 mb-5">
 					<div class="card h-70">
-						<img src="img_Latest1.png" class="pressArticle" alt="img"/>
+						<img src="img_Placeholder.png" class="pressArticle" alt="img" id="latest1"/>
 						<div class="card-body">
 							<h4 class="card-title"><script>document.write(STRING_LATEST1)</script></h4>
 							<p class="card-text"><script>document.write(STRING_LATEST1_DESC)</script></p>
@@ -238,7 +248,7 @@
 				</div>
 				<div class="col-md-4 mb-5">
 					<div class="card h-70">
-						<img src="img_Latest2.png" class="pressArticle" alt="img"/>
+						<img src="img_Placeholder.png" class="pressArticle" alt="img" id="latest2"/>
 						<div class="card-body">
 							<h4 class="card-title"><script>document.write(STRING_LATEST2)</script></h4>
 							<p class="card-text"><script>document.write(STRING_LATEST2_DESC)</script></p>
@@ -250,7 +260,7 @@
 				</div>
 				<div class="col-md-4 mb-5">
 					<div class="card h-70">
-						<img src="img_Latest3.png" class="pressArticle" alt="img"/>
+						<img src="img_Placeholder.png" class="pressArticle" alt="img" id="latest3"/>
 						<div class="card-body">
 							<h4 class="card-title"><script>document.write(STRING_LATEST3)</script></h4>
 							<p class="card-text"><script>document.write(STRING_LATEST3_DESC)</script></p>
@@ -269,7 +279,7 @@
 			<div class="row">
 				<div class="col-md-4 mb-5">
 					<div class="card h-70">
-						<img src="img_Press_Press01.jpg" class="pressArticle" alt="img"/>
+						<img src="img_Placeholder.png" class="pressArticle" alt="img" id="press1"/>
 						<div class="card-body">
 							<h4 class="card-title">Clar&iacute;n</h4>
 							<p class="card-text"><script>document.write(STRING_BLIND1)</script></p>
@@ -281,7 +291,7 @@
 				</div>
 				<div class="col-md-4 mb-5">
 					<div class="card h-70">
-						<img src="img_Press_Press02.jpg" class="pressArticle" alt="img"/>
+						<img src="img_Placeholder.png" class="pressArticle" alt="img" id="press2"/>
 						<div class="card-body">
 							<h4 class="card-title">La Naci&oacute;n</h4>
 							<p class="card-text"><script>document.write(STRING_BLIND1)</script></p>
@@ -293,7 +303,7 @@
 				</div>
 				<div class="col-md-4 mb-5">
 					<div class="card h-70">
-						<img src="img_Press_Press03.jpg" class="pressArticle" alt="img"/>
+						<img src="img_Placeholder.png" class="pressArticle" alt="img" id="press3"/>
 						<div class="card-body">
 							<h4 class="card-title">Infobae</h4>
 							<p class="card-text"><script>document.write(STRING_BLIND1)</script></p>
@@ -308,7 +318,7 @@
 			<div class="row">
 				<div class="col-md-4 mb-5">
 					<div class="card h-70">
-						<img src="img_Press_Press04.jpg" class="pressArticle" alt="img"/>
+						<img src="img_Placeholder.png" class="pressArticle" alt="img" id="press4"/>
 						<div class="card-body">
 							<h4 class="card-title">Clar&iacute;n</h4>
 							<p class="card-text"><script>document.write(STRING_MOBILITY)</script></p>
@@ -320,7 +330,7 @@
 				</div>
 				<div class="col-md-4 mb-5">
 					<div class="card h-70">
-						<img src="img_Press_Press05.jpg" class="pressArticle" alt="img"/>
+						<img src="img_Placeholder.png" class="pressArticle" alt="img" id="press5"/>
 						<div class="card-body">
 							<h4 class="card-title">La Naci&oacute;n</h4>
 							<p class="card-text"><script>document.write(STRING_MOBILITY)</script></p>
@@ -332,7 +342,7 @@
 				</div>
 				<div class="col-md-4 mb-5">
 					<div class="card h-70">
-						<img src="img_Press_Press06.jpg" class="pressArticle" alt="img"/>
+						<img src="img_Placeholder.png" class="pressArticle" alt="img" id="press6"/>
 						<div class="card-body">
 							<h4 class="card-title">Infobae</h4>
 							<p class="card-text"><script>document.write(STRING_MUSEUM)</script></p>
@@ -347,7 +357,7 @@
 			<div class="row">
 				<div class="col-md-4 mb-5">
 					<div class="card h-70">
-						<img src="img_Press_Press07.jpg" class="pressArticle" alt="img"/>
+						<img src="img_Placeholder.png" class="pressArticle" alt="img" id="press7"/>
 						<div class="card-body">
 							<h4 class="card-title">Clar&iacute;n</h4>
 							<p class="card-text"><script>document.write(STRING_MAKER)</script></p>
@@ -359,7 +369,7 @@
 				</div>
 				<div class="col-md-4 mb-5">
 					<div class="card h-70">
-						<img src="img_Press_Press08.jpg" class="pressArticle" alt="img"/>
+						<img src="img_Placeholder.png" class="pressArticle" alt="img" id="press8"/>
 						<div class="card-body">
 							<h4 class="card-title">La Naci&oacute;n</h4>
 							<p class="card-text"><script>document.write(STRING_MAKER)</script></p>
@@ -371,7 +381,7 @@
 				</div>
 				<div class="col-md-4 mb-5">
 					<div class="card h-70">
-						<img src="img_Press_Press09.jpg" class="pressArticle" alt="img"/>
+						<img src="img_Placeholder.png" class="pressArticle" alt="img" id="press9"/>
 						<div class="card-body">
 							<h4 class="card-title">Infobae</h4>
 							<p class="card-text"><script>document.write(STRING_BLIND1)</script></p>
@@ -386,7 +396,7 @@
 			<div class="row">
 				<div class="col-md-4 mb-5">
 					<div class="card h-70">
-						<img src="img_Press_Press10.jpg" class="pressArticle" alt="img"/>
+						<img src="img_Placeholder.png" class="pressArticle" alt="img" id="press10"/>
 						<div class="card-body">
 							<h4 class="card-title">Clar&iacute;n</h4>
 							<p class="card-text"><script>document.write(STRING_TAXI)</script></p>
@@ -398,7 +408,7 @@
 				</div>
 				<div class="col-md-4 mb-5">
 					<div class="card h-70">
-						<img src="img_Press_Press11.jpg" class="pressArticle" alt="img"/>
+						<img src="img_Placeholder.png" class="pressArticle" alt="img" id="press11"/>
 						<div class="card-body">
 							<h4 class="card-title">La Nación</h4>
 							<p class="card-text"><script>document.write(STRING_EMULATRIX)</script></p>
@@ -410,7 +420,7 @@
 				</div>
 				<div class="col-md-4 mb-5">
 					<div class="card h-70">
-						<img src="img_Press_Press12.jpg" class="pressArticle" alt="img"/>
+						<img src="img_Placeholder.png" class="pressArticle" alt="img" id="press12"/>
 						<div class="card-body">
 							<h4 class="card-title">Infobae</h4>
 							<p class="card-text"><script>document.write(STRING_EMULATRIX)</script></p>
@@ -425,7 +435,7 @@
 			<div class="row">
 				<div class="col-md-4 mb-5">
 					<div class="card h-70">
-						<img src="img_Press_Press13.jpg" class="pressArticle" alt="img"/>
+						<img src="img_Placeholder.png" class="pressArticle" alt="img" id="press13"/>
 						<div class="card-body">
 							<h4 class="card-title">Infobae</h4>
 							<p class="card-text"><script>document.write(STRING_BLIND3)</script></p>
@@ -437,7 +447,7 @@
 				</div>
 				<div class="col-md-4 mb-5">
 					<div class="card h-70">
-						<img src="img_Press_Press14.jpg" class="pressArticle" alt="img"/>
+						<img src="img_Placeholder.png" class="pressArticle" alt="img" id="press14"/>
 						<div class="card-body">
 							<h4 class="card-title">BBC</h4>
 							<p class="card-text"><script>document.write(STRING_BLIND2)</script></p>
@@ -449,7 +459,7 @@
 				</div>
 				<div class="col-md-4 mb-5">
 					<div class="card h-70">
-						<img src="img_Press_Press15.jpg" class="pressArticle" alt="img"/>
+						<img src="img_Placeholder.png" class="pressArticle" alt="img" id="press15"/>
 						<div class="card-body">
 							<h4 class="card-title">CNN</h4>
 							<p class="card-text"><script>document.write(STRING_BLIND2)</script></p>
@@ -460,6 +470,10 @@
 					</div>
 				</div>
 			</div>
+
+			<script>
+
+			</script>
 
 			<div class="text-black my-4 py-0 text-left bottomBarTitle">
 				<h2 class="bottomBarTitleMargin" id="contact"><script>document.write(STRING_CONTACT_INFO)</script></h2>
@@ -510,6 +524,39 @@
 
 			window.addEventListener("load", function()
 				{
+
+				try
+					{
+					document.getElementById("latest1").src = STRING_LATEST1_IMAGE;
+					document.getElementById("latest2").src = STRING_LATEST2_IMAGE;
+					document.getElementById("latest3").src = STRING_LATEST3_IMAGE;
+					}
+					catch(err)
+					{
+					}
+
+				try
+					{
+					document.getElementById("press1").src = "img_Press_Press01.jpg";
+					document.getElementById("press2").src = "img_Press_Press02.jpg";
+					document.getElementById("press3").src = "img_Press_Press03.jpg";
+					document.getElementById("press4").src = "img_Press_Press04.jpg";
+					document.getElementById("press5").src = "img_Press_Press05.jpg";
+					document.getElementById("press6").src = "img_Press_Press06.jpg";
+					document.getElementById("press7").src = "img_Press_Press07.jpg";
+					document.getElementById("press8").src = "img_Press_Press08.jpg";
+					document.getElementById("press9").src = "img_Press_Press09.jpg";
+					document.getElementById("press10").src = "img_Press_Press10.jpg";
+					document.getElementById("press11").src = "img_Press_Press11.jpg";
+					document.getElementById("press12").src = "img_Press_Press12.jpg";
+					document.getElementById("press13").src = "img_Press_Press13.jpg";
+					document.getElementById("press14").src = "img_Press_Press14.jpg";
+					document.getElementById("press15").src = "img_Press_Press15.jpg";
+					}
+					catch(err)
+					{
+					}
+
 				try
 					{
 					var myText1 = "bWFpbHRvOmluZm9AbHJ1c3NvLmNvbQ==";
