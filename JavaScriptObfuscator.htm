@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 	<head>
 		<meta charset="UTF-8"/>
 		<title>JavaScript Obfuscator</title>
@@ -30,7 +30,126 @@
 		<link rel="stylesheet" href="JavaScriptObfuscator.css" type="text/css">
 	</head>
 	<body>
-		<div class="" id="root"></div></div>
-		<script src="JavaScriptObfuscator.js"></script>
+		<div>
+			<span>Input JavaScript</span>
+			<textarea id="in" spellcheck="false" rows="25" cols="80"></textarea>
+		</div>
+		<div>
+			<span>Obfuscated Output</span>
+			<textarea id="out" spellcheck="false" rows="25" cols="80" readonly disabled></textarea>
+		</div>
+		<div>
+			<button id="buttonObfuscate">Obfuscate</button>
+			<button id="buttonClear">Clear</button>
+		</div>
+		<script>
+			// CREATING THE WEB WORKER
+			var myWorker = new Worker("JavaScriptObfuscator.js");
+
+			// SETTING WHAT HAPPENS WHEN DATA IS RECEIVED FROM THE WEB WORKER
+			myWorker.onmessage = function(e)
+				{
+				try
+					{
+					// GETTING THE DATA SENT FROM THE WEB WORKER
+					var myReceivedData = e.data;
+
+					// SHOWING THE DATA SENT FROM THE WEB WORKER
+					document.getElementById("out").value = myReceivedData;
+
+					// ENABLING THE IN TEXTAREA
+					document.getElementById("in").disabled = false;
+
+					// SHOWING THE "OBFUSCATE" BUTTON
+					document.getElementById("buttonObfuscate").style.display = "inline-block";
+
+					// SHOWING THE "CLEAR" BUTTON
+					document.getElementById("buttonClear").style.display = "inline-block";
+
+					// FOCUSING THE OUT TEXTAREA
+					document.getElementById("out").focus();
+
+					// SELECTING THE OUT TEXTAREA TEXT
+					document.getElementById("out").select();
+					}
+					catch(err)
+					{
+					}
+
+				return true;
+				}
+
+			function obfuscateCode()
+				{
+				// DISABLING THE IN TEXTAREA
+				document.getElementById("in").disabled = true;
+
+				// ENABLING THE OUT TEXTAREA
+				document.getElementById("out").disabled = false;
+
+				// FOCUSING THE OUT TEXTAREA
+				document.getElementById("out").focus();
+
+				// UPDATING THE OUT TEXTAREA
+				document.getElementById("out").value = "Please wait...";
+
+				// HIDING THE "OBFUSCATE" BUTTON
+				document.getElementById("buttonObfuscate").style.display = "none";
+
+				// HIDING THE "CLEAR" BUTTON
+				document.getElementById("buttonClear").style.display = "none";
+
+				// SENDING THE CODE TO THE WEB WORKER
+				myWorker.postMessage(document.getElementById("in").value);
+				}
+
+			window.addEventListener("load", function()
+				{
+				// CLEARING THE IN TEXTAREA
+				document.getElementById("in").value = "";
+
+				// CLEARING THE OUT TEXTAREA
+				document.getElementById("out").value = "";
+
+				// DISABLING THE OUT TEXTAREA
+				document.getElementById("out").disabled = true;
+
+				// FOCUSING THE IN TEXTAREA
+				document.getElementById("in").focus();
+
+				// SETTING WHAT WILL HAPPEN WHEN THE USER CLICKS IN THE "OBFUSCATE" BUTTON
+				document.getElementById("buttonObfuscate").addEventListener("click",function(event)
+					{
+					// STARTING THE OBFUSCATING CODE PROCESS
+					obfuscateCode();
+					});
+
+				// SETTING WHAT WILL HAPPEN WHEN THE USER CLICKS IN THE "CLEAR" BUTTON
+				document.getElementById("buttonClear").addEventListener("click",function(event)
+					{
+					// CLEARING THE IN TEXTAREA
+					document.getElementById("in").value = "";
+
+					// CLEARING THE OUT TEXTAREA
+					document.getElementById("out").value = "";
+					});
+
+				// SETTING WHAT WILL HAPPEN WHEN THE USER PASTE A TEXT IN THE IN TEXTAREA
+				document.getElementById("in").addEventListener("paste", function(e)
+					{
+					// CANCELING THE PASTE EVENT
+					e.preventDefault();
+
+					// GETTING THE CLIPBOARD CONTENT AS PLAIN TEXT
+					var text = (e.originalEvent || e).clipboardData.getData("text/plain");
+
+					// UPDATING THE IN TEXTAREA
+					document.getElementById("in").value = text;
+
+					// STARTING THE OBFUSCATING CODE PROCESS
+					obfuscateCode();
+					});
+				});
+		</script>
 	</body>
 </html>
